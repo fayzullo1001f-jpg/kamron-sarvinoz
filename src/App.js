@@ -1,3 +1,4 @@
+
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./App.css";
@@ -8,12 +9,16 @@ import play from "./img/circle-play-regular-full.svg";
 import pause from "./img/circle-pause-regular-full.svg";
 
 import one from "./img/one.png";
-import wed_lw from "./img/fairytale-shoot-in-a-meadow-couple-embracing.jpg";
-import restaurant from "./img/L_height.webp";
-import ring from "./img/newlyleds-exchanging-ring.jpg";
+import wed_lw from "./img/1first.jpg";
+import wed_lws from "./img/third.jpg";
+import wed_lws4 from "./img/fourth.jpg";
+import wed_lws5 from "./img/five.jpg";
+import wed_lws6 from "./img/six.jpg";
+import wed_lws7 from "./img/seven.jpg";
+import wed_lws8 from "./img/eight.jpg";
 import bird from "./img/footer.png";
 
-import cake from "./img/cake-cutting-tradition-wedding-planning-yacht-charter-nyc.jpg";
+import cake from "./img/second.jpg";
 
 function App() {
   const [timeLeft, setTimeLeft] = useState("");
@@ -26,12 +31,12 @@ function App() {
   /*
   ============================================================
   TO'Y SANASI
-  23.12.2026 — 18:00
+  26.11.2026 — 18:00
   ============================================================
   */
 
   const weddingDate = useMemo(() => {
-    return new Date(2026, 11, 23, 18, 0, 0).getTime();
+    return new Date(2026, 10, 26, 18, 0, 0).getTime();
   }, []);
 
   /*
@@ -39,10 +44,10 @@ function App() {
   COUNTDOWN
   ============================================================
   */
+
   useEffect(() => {
     const updateCountdown = () => {
       const now = Date.now();
-
       const distance = weddingDate - now;
 
       if (distance <= 0) {
@@ -81,10 +86,7 @@ function App() {
 
     updateCountdown();
 
-    const interval = setInterval(
-        updateCountdown,
-        1000
-    );
+    const interval = setInterval(updateCountdown, 1000);
 
     return () => {
       clearInterval(interval);
@@ -183,9 +185,7 @@ function App() {
 
   return (
       <>
-        {/* ======================================================
-          AUDIO
-      ====================================================== */}
+        {/* AUDIO */}
 
         <audio
             ref={audioRef}
@@ -201,16 +201,14 @@ function App() {
         <AnimatePresence>
           {showIntro ? (
               /*
-                ====================================================
-                INTRO
-                ====================================================
+              ====================================================
+              INTRO
+              ====================================================
               */
 
               <motion.div
                   className={`intro ${
-                      sealOpened
-                          ? "intro_opening"
-                          : ""
+                      sealOpened ? "intro_opening" : ""
                   }`}
                   initial={{
                     opacity: 1,
@@ -227,9 +225,7 @@ function App() {
                       scale: 1,
                     }}
                     animate={{
-                      scale: sealOpened
-                          ? 1.04
-                          : 1,
+                      scale: sealOpened ? 1.04 : 1,
                     }}
                     transition={{
                       duration: 1,
@@ -250,38 +246,27 @@ function App() {
 
                 <div
                     className={`opening_light ${
-                        sealOpened
-                            ? "light_active"
-                            : ""
+                        sealOpened ? "light_active" : ""
                     }`}
                 />
               </motion.div>
           ) : (
               /*
-                ====================================================
-                MAIN APP
-                ====================================================
+              ====================================================
+              MAIN APP
+              ====================================================
               */
 
               <div className="app">
 
-                {/* ==================================================
-                HERO
-            ================================================== */}
+                {/* HERO */}
 
                 <section className="hero">
 
-                  {/* RASM USTIDAN BEIGE OVERLAY */}
-
                   <div className="hero_overlay" />
-
-                  {/* MARKAZIY YORUG'LIK */}
-
                   <div className="hero_glow" />
 
                   <div className="hero_content">
-
-                    {/* TO'Y KUNI */}
 
                     <motion.p
                         className="wedding_date_top"
@@ -300,7 +285,7 @@ function App() {
                       Taklifnoma
                     </motion.p>
 
-                    {/* ABROR */}
+                    {/* KUYOV */}
 
                     <motion.h1
                         initial={{
@@ -315,7 +300,7 @@ function App() {
                           duration: 1,
                         }}
                     >
-                      Abror
+                      Kamron
                     </motion.h1>
 
                     {/* & */}
@@ -338,7 +323,7 @@ function App() {
                       &
                     </motion.div>
 
-                    {/* MUSLIMA */}
+                    {/* KELIN */}
 
                     <motion.h1
                         initial={{
@@ -354,7 +339,7 @@ function App() {
                           duration: 1,
                         }}
                     >
-                      Muslima
+                      Sarvinoz
                     </motion.h1>
 
                     {/* SANA */}
@@ -374,16 +359,14 @@ function App() {
                           duration: 1,
                         }}
                     >
-                      23.12.2026
+                      26.11.2026
                     </motion.p>
 
                     {/* MUSIQA */}
 
                     <motion.div
                         className={`music_btn ${
-                            isPlaying
-                                ? "playing"
-                                : ""
+                            isPlaying ? "playing" : ""
                         }`}
                         onClick={toggleMusic}
                         whileTap={{
@@ -394,11 +377,7 @@ function App() {
                         }}
                     >
                       <img
-                          src={
-                            isPlaying
-                                ? pause
-                                : play
-                          }
+                          src={isPlaying ? pause : play}
                           alt="Musiqa"
                       />
                     </motion.div>
@@ -406,9 +385,7 @@ function App() {
                   </div>
                 </section>
 
-                {/* ==================================================
-                TAKLIFNOMA
-            ================================================== */}
+                {/* TAKLIFNOMA */}
 
                 <motion.section
                     className="section sed"
@@ -439,7 +416,9 @@ function App() {
                       variants={textVariant}
                       initial="hidden"
                       whileInView="visible"
+
                   >
+                    <span className="span">
                     Assalomu alaykum!
                     <br />
 
@@ -450,13 +429,11 @@ function App() {
                     munosabati bilan
                     bo'lib o'tadigan
 
+
+                    <span className="visol">  "Visol oqshomi"</span>"ga
                     <br />
 
-                    "Visol oqshomi"ga
-
-                    <br />
-
-                    taklif etamiz 💍
+                    taklif etamiz 💍</span>
                   </motion.p>
 
                   <motion.div
@@ -473,6 +450,7 @@ function App() {
                   </motion.div>
 
                   <div className="timer">
+
                     <div className="time_box">
                       <strong>{timeLeft.days}</strong>
                       <span>Kun</span>
@@ -492,13 +470,11 @@ function App() {
                       <strong>{timeLeft.seconds}</strong>
                       <span>Sekund</span>
                     </div>
-                  </div>
 
+                  </div>
                 </motion.section>
 
-                {/* ==================================================
-                TO'Y KUNI
-            ================================================== */}
+                {/* TO'Y KUNI */}
 
                 <motion.section
                     className="section"
@@ -533,16 +509,13 @@ function App() {
                           length: 31,
                         },
                         (_, i) => {
-
                           const day = i + 1;
 
                           return (
                               <div
                                   key={day}
                                   className={`day ${
-                                      day === 23
-                                          ? "active_day"
-                                          : ""
+                                      day === 26 ? "active_day" : ""
                                   }`}
                               >
                                 {day}
@@ -553,139 +526,121 @@ function App() {
 
                   </div>
 
-                  <h2>
-                    23 December 2026
+                  <h2 className="nov">
+                    26 November 2026
                   </h2>
 
                 </motion.section>
 
-                {/* ==================================================
-                LOKATSIYA
-            ================================================== */}
+                {/* LOKATSIYA */}
+
+                {/* GALEREYA */}
 
                 <motion.section
-                    className="section"
-                    initial={{
-                      opacity: 0,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                    }}
-                    viewport={{
-                      once: true,
-                    }}
+                    className="section gallery_section"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                 >
+                  <div className="gallery_heading">
+                    <span className="gallery_subtitle">Our memories</span>
 
-                  <h2>
-                    LOKATSIYA
-                  </h2>
+                    <h2>GALEREYA</h2>
 
-                  <motion.img
-                      src={restaurant}
-                      className="restaurant"
-                      variants={imgVariant}
-                      initial="hidden"
-                      whileInView="visible"
-                      alt=""
-                  />
+                    <div className="gallery_decoration">
+                      <span></span>
+                      ♡
+                      <span></span>
+                    </div>
 
-                  <iframe
-                      title="map"
-                      src="https://www.google.com/maps?q=Versal%20to'yxonasi%20Toshkent&output=embed"
-                      className="map"
-                  />
+                    <p>
+                      Baxtli lahzalarimizdan esdaliklar
+                    </p>
+                  </div>
 
-                </motion.section>
+                  <div className="gallery_grid">
 
-                {/* ==================================================
-                TO'Y DASTURI
-            ================================================== */}
+                    <motion.div
+                        className="gallery_item gallery_large"
+                        whileHover={{ scale: 1.03 }}
+                        transition={{ duration: 0.4 }}
+                    >
+                      <img src={wed_lws} alt="Wedding memories" />
+                      <div className="gallery_overlay">
+                        <span>♡</span>
+                      </div>
+                    </motion.div>
 
-                <motion.section
-                    className="section"
-                    initial={{
-                      opacity: 0,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                    }}
-                    viewport={{
-                      once: true,
-                    }}
-                >
+                    <motion.div
+                        className="gallery_item"
+                        whileHover={{ scale: 1.03 }}
+                        transition={{ duration: 0.4 }}
+                    >
+                      <img src={wed_lws4} alt="Wedding rings" />
+                      <div className="gallery_overlay">
+                        <span>♡</span>
+                      </div>
+                    </motion.div>
 
-                  <h2>
-                    TO‘Y DASTURI
-                  </h2>
+                    <motion.div
+                        className="gallery_item"
+                        whileHover={{ scale: 1.03 }}
+                        transition={{ duration: 0.4 }}
+                    >
+                      <img src={wed_lws5} alt="Wedding venue" />
+                      <div className="gallery_overlay">
+                        <span>♡</span>
+                      </div>
+                    </motion.div>
 
-                  <div className="timeline">
+                    <motion.div
+                        className="gallery_item gallery_wide"
+                        whileHover={{ scale: 1.03 }}
+                        transition={{ duration: 0.4 }}
+                    >
+                      <img src={wed_lws6} alt="Wedding celebration" />
+                      <div className="gallery_overlay">
+                        <span>♡</span>
+                      </div>
+                    </motion.div>
+                    <motion.div
+                        className="gallery_item"
+                        whileHover={{ scale: 1.03 }}
+                        transition={{ duration: 0.4 }}
+                    >
+                      <img src={wed_lws7} alt="Wedding moments" />
+                      <div className="gallery_overlay">
+                        <span>♡</span>
+                      </div>
+                    </motion.div>
 
-                    {[
-                      [
-                        "17:00",
-                        "Mehmonlar kelishi",
-                      ],
-                      [
-                        "18:00",
-                        "To‘y boshlanishi",
-                      ],
-                      [
-                        "19:00",
-                        "Nikoh marosimi",
-                      ],
-                      [
-                        "21:00",
-                        "To‘y dasturi",
-                      ],
-                      [
-                        "22:00",
-                        "Tort 🎂",
-                      ],
-                    ].map(
-                        (
-                            [time, text],
-                            index
-                        ) => (
+                    <motion.div
+                        className="gallery_item"
+                        whileHover={{ scale: 1.03 }}
+                        transition={{ duration: 0.4 }}
+                    >
+                      <img src={wed_lws8} alt="Beautiful memories" />
+                      <div className="gallery_overlay">
+                        <span>♡</span>
+                      </div>
+                    </motion.div>
 
-                            <div
-                                key={index}
-                                className="timeline_item"
-                            >
-                              <b>
-                                {time}
-                              </b>
-
-                              <span>
-                        {text}
-                      </span>
-                            </div>
-
-                        )
-                    )}
 
                   </div>
 
-                  <motion.img
-                      src={ring}
-                      className="ring"
-                      variants={imgVariant}
-                      initial="hidden"
-                      whileInView="visible"
-                      alt=""
-                  />
-
+                  <div className="gallery_footer">
+                    Kamron <span>&</span> Sarvinoz
+                  </div>
                 </motion.section>
 
-                {/* ==================================================
-                FOOTER
-            ================================================== */}
+                {/* FOOTER */}
 
                 <section
                     className="footer"
                     style={{
                       backgroundImage: `url(${bird})`,
                     }}
-                ></section>
+                />
 
               </div>
           )}
